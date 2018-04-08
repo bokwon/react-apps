@@ -1,5 +1,48 @@
 body {
   margin: 0;
   padding: 20px;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+form {
+  margin: 10px 0;
+}
+
+input {
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+table {
+  width: 100%;
+  background: #dedede;
+  color: #3a3a3a;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+span {
+  font-size: 13px;
+}
+
+.searchable-table {
+  background: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+}
+
+.category {
+  color: #01728e;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  text-decoration: line-through;
+  color: gray;
 }
