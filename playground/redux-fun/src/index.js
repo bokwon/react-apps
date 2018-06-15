@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import './redux-tutorial/react-counter.js';
+import './redux-tutorial/counter-list.js';
 import registerServiceWorker from './registerServiceWorker';
