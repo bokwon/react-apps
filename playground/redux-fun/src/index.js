@@ -1,3 +1,3 @@
 import './index.css';
-import './redux-tutorial/reducer-composition.js';
+import './todolist/reducers.js';
 import registerServiceWorker from './registerServiceWorker';

@@ -67,7 +67,6 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
 // const reducer = (accumulator, currentValue) => accumulator + currentValue;
 // array1.reduce(reducer, 5);
 
-
 const combineReducers = (reducers) => {
   return (state = {}, action) => {
     return Object.keys(reducers).reduce(
