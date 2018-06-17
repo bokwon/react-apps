@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 const deepFreeze = require ('deep-freeze');
 
 const todo = (state = [], action) => {
@@ -58,11 +58,37 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
 // }
 
 // combineReducers: it generates the top level reducer. The only argument to combine reducers is an object.
+// Arguments: reducers(Object): An object whose values correspond to different reducing functions that need to be combined into one.
+// Returns: (Function): A reducer that invokes every reducer inside the reducers object, and constructs a state object with the same shape.
+
+// reduce() method applies a function against an accumulator and each element in the array(from left to right) to reduce it to a single value.
+
+// const array1 = [1, 2, 3, 4];
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
+// array1.reduce(reducer, 5);
+
+
+const combineReducers = (reducers) => {
+  return (state = {}, action) => {
+    return Object.keys(reducers).reduce(
+      (nextState, key) => {
+        nextState[key] = reducers[key](
+          state[key],
+          action
+        );
+        return nextState;
+      },
+      {}
+    );
+  };
+};
 // ES6 object literal shorthand notation.
 const todoApp = combineReducers({
   todos,
   visibilityFilter
 });
+
+// All combineReducers() does is generate a function that calls your reducers with the slices of state selected according to their keys, and combining their results into a single object again.
 
 const store = createStore(todoApp);
 
