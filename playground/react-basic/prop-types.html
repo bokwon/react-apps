@@ -1,0 +1,40 @@
+<div id='root'></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script type="text/babel">
+const rootElement = document.getElementById('root');
+const SayHello = (props) => (
+    <div>
+      Hello {props.firstName} {props.lastName}!
+    </div>
+  )
+
+// Our implementation
+// const PropTypes = {
+//   string(props, propName, componentName) {
+//     if (typeof props[propName] !== 'string') {
+//       return new Error(
+//         `You should pass a string for ${propName} in ${componentName} but you passed a ${typeof props[propName]}`
+//       )
+//     }
+//   }
+// }
+
+// declare propTypes on your component functoin. Or use static propTypes in Class component
+// static propTypes = {
+//  firstName: PropTypes.string.isRequired
+//  lastName: PropTypes.string.isRequired
+// }
+
+SayHello.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired
+}
+
+ReactDOM.render(
+  <SayHello firstName={true} />,
+  rootElement
+)
+</script>

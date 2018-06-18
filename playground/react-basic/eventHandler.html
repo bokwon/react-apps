@@ -1,0 +1,38 @@
+<div id='root'></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script type="text/babel">
+const rootElement = document.getElementById('root');
+const state = {eventCount: 0, username: ''}
+
+const App = () => {
+  return (
+    <div>
+      <p>There have been {state.eventCount} events</p>
+      <p><button onClick={increment}>Create events</button></p>
+      <p>You typed: {state.username}</p>
+      <p>
+        <input onChange={updateUserName} />
+      </p>
+    </div>
+  )
+}
+
+const increment = () => setState({eventCount: state.eventCount + 1})
+const updateUserName = (e) => setState({username: e.target.value})
+
+const renderApp = () => {
+  ReactDOM.render(
+    <App />, rootElement
+  )
+}
+
+const setState = (newState) => {
+  Object.assign(state, newState);
+  renderApp()
+}
+
+
+renderApp();
+</script>
