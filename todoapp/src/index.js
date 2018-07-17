@@ -78,10 +78,10 @@ const FilterLink = ({
   )
 }
 
-const Footer = (
+const Footer = ({
   visibilityFilter,
   onFilterClick
-) => (
+}) => (
   <p>
     Show:
     {' '}
